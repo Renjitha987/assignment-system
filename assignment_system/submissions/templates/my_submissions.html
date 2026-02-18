@@ -1,0 +1,7 @@
+<h2>My Submissions</h2>
+
+{% for s in subs %}
+<p>{{ s.assignment.title }}</p>
+<a href="{{ s.file.url }}">Download</a>
+<hr>
+{% endfor %}

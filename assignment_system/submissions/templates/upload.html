@@ -1,0 +1,12 @@
+<h2>Upload Assignment</h2>
+
+<p>Assignment: {{ assignment.title }}</p>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file" required>
+    <button type="submit">Submit Assignment</button>
+</form>
+
+<br>
+<a href="/">Back to Assignments</a>

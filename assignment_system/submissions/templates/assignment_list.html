@@ -1,0 +1,19 @@
+<hr>
+<a href="/">Assignments</a> |
+<a href="/my-submissions/">My Submissions</a> |
+<a href="/logout/">Logout</a>
+<hr>
+
+<h2>Assignments</h2>
+{% for a in assignments %}
+<p>{{ a.title }}</p>
+
+{% if a.id in submitted %}
+   <p style="color:green;">Submitted</p>
+{% else %}
+   <a href="/upload/{{ a.id }}">Upload Assignment</a>
+{% endif %}
+
+<hr>
+{% endfor %}
+
