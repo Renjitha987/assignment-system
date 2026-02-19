@@ -1,19 +1,33 @@
-<hr>
-<a href="/">Assignments</a> |
-<a href="/my-submissions/">My Submissions</a> |
-<a href="/logout/">Logout</a>
-<hr>
+{% extends 'base.html' %}
 
-<h2>Assignments</h2>
+{% block content %}
+
+<h2 class="text-center mb-4">Assignments</h2>
+
+<div class="row">
+
 {% for a in assignments %}
-<p>{{ a.title }}</p>
+    <div class="col-md-4">
+        <div class="card shadow mb-4">
+            <div class="card-body">
 
-{% if a.id in submitted %}
-   <p style="color:green;">Submitted</p>
-{% else %}
-   <a href="/upload/{{ a.id }}">Upload Assignment</a>
-{% endif %}
+                <h5 class="card-title">{{ a.title }}</h5>
 
-<hr>
+                {% if a.id in submitted %}
+                    <span class="badge bg-success">Submitted</span>
+                {% else %}
+                    <a href="/upload/{{ a.id }}" class="btn btn-primary">
+                        Upload Assignment
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
 {% endfor %}
+
+</div>
+
+{% endblock %}
+
 
